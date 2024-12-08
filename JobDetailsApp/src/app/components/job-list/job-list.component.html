@@ -1,0 +1,40 @@
+<div class="container my-4">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <div *ngIf="jobDetails.length === 0" class="alert alert-warning">
+    No job details found.
+  </div>
+
+  <div *ngIf="jobDetails.length > 0">
+    <div *ngFor="let job of jobDetails" class="card my-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ job.title }}</h5>
+        <p class="card-text"><strong>Name:</strong> {{ job.name }}</p>
+        <p class="card-text"><strong>Company:</strong> {{ job.company }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+        <p class="card-text">
+          <strong>Salary:</strong> {{ job.salary | currency }}
+        </p>
+        <p class="card-text">
+          <strong>Description:</strong>
+          {{ job.description | slice : 0 : 150 }}...
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="card-body text-muted d-flex justify-content-center align-items-center">
+
+          <!-- Update Button -->
+          <button class="btn btn-warning btn-sm me-2" (click)="editJob(job)">
+            Update
+          </button>
+
+
+          <!-- Delete Button -->
+          <button class="btn btn-danger btn-sm" (click)="deleteJob(job.jobDetailID)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

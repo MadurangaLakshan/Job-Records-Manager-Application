@@ -1,0 +1,39 @@
+<div>
+  <h2>Job Form</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="jobDetail.name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="title">Job Title</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="jobDetail.title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="jobDetail.description" name="description" rows="4"
+        required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input type="number" id="salary" class="form-control" [(ngModel)]="jobDetail.salary" name="salary" required />
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" class="form-control" [(ngModel)]="jobDetail.location" name="location" required />
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" id="company" class="form-control" [(ngModel)]="jobDetail.company" name="company" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">
+      {{ isUpdateMode ? 'Update' : 'Submit' }}
+    </button>
+  </form>
+</div>
